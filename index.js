@@ -46,13 +46,20 @@ let trans = (q) => {
 	    res.setEncoding('utf8');
 	    res.on('data',function(data){
 	    	let datas = JSON.parse(data);
-	    	let phonetic = datas.basic.phonetic ? "["+datas.basic.phonetic+"]" : '';
+	    	let phonetic = datas.basic&&datas.basic.phonetic ? "["+datas.basic.phonetic+"]" : '';
 	        console.log(datas.query + phonetic);
-	        console.log('翻译：');
-	        datas.basic.explains.map((item)=>console.log('  ' + item));
+			console.log('翻译：');
+			console.log(datas.translation);
+			datas.basic&&datas.basic.explains.map((item)=>console.log('  ' + item));
+			
 	        
 	    });
 	});
+
+	req.on('error', function (e) { 
+		console.log('抱歉，出了点小问题'); 
+	});
+
     req.write(contents);
 	req.end();
 }
