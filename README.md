@@ -12,7 +12,7 @@ transkit <your word>
 or
 使用alias
 ```
-alias < your shortcut>="transkit"
+alias <your shortcut>="transkit"
 eg：alias ds＝"transkit"
 ```
 配置好之后，执行source，之后的使用方式如下：
