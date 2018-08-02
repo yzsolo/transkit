@@ -58,7 +58,7 @@ let trans = (q) => {
 }
  
 program
-  .version('0.0.8')
+  .version('0.0.3')
   .arguments('<cmd>')
   .action((cmd)=>{
   	cmdValue = cmd;
