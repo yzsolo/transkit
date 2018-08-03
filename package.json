@@ -1,6 +1,6 @@
 {
   "name": "transkit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "自用命令行翻译工具",
   "main": "index.js",
   "bin": {
@@ -14,5 +14,5 @@
   "bugs": {
     "url": ""
   },
-  "homepage": ""
+  "homepage": "https://github.com/yzsolo/transkit"
 }
