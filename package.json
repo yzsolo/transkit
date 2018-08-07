@@ -1,6 +1,6 @@
 {
   "name": "transkit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "自用命令行翻译工具",
   "main": "index.js",
   "bin": {

@@ -17,7 +17,10 @@ eg：alias ds＝"transkit"
 ```
 配置好之后，执行source，之后的使用方式如下：
 ```
-ds hello
+ds world
 ```
+![Imgur](https://i.imgur.com/Q5MpGTX.png)
+
+[开发有感](https://github.com/yzsolo/yzsolo.github.io/issues/26 "开发有感")
 
 😄😄😄
