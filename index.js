@@ -21,12 +21,12 @@ let getSalt = () => {
 	return Math.round(Math.random()*100000000000);
 }
 
-let trans = (q) => {
+let trans = (q, to) => {
 	let salt = getSalt();
 	let contents = querystring.stringify({
 	    q: q,
 	    from: 'auto',
-	    to: 'auto',
+	    to: to,
 	    appKey: appId,
 	    salt: salt,
 	    sign: getMd5(appId + q + salt + appKey),
@@ -51,8 +51,6 @@ let trans = (q) => {
 			console.log('翻译：');
 			console.log(datas.translation);
 			datas.basic&&datas.basic.explains.map((item)=>console.log('  ' + item));
-			
-	        
 	    });
 	});
 
@@ -60,15 +58,47 @@ let trans = (q) => {
 		console.log('抱歉，出了点小问题'); 
 	});
 
-    req.write(contents);
+  req.write(contents);
 	req.end();
+}
+
+let getCountry = (option) => {
+  if(option.zh)
+    toLanguage = 'zh-CHS'
+  else if(option.ja) 
+    toLanguage = 'ja'
+  else if(option.ko) 
+    toLanguage = 'ko'
+  else if(option.fr) 
+    toLanguage = 'fr'
+  else if(option.ru)
+    toLanguage = 'ru'
+  else if(option.pt) 
+    toLanguage = 'pt'
+  else if(option.es)
+    toLanguage = 'es'
+  else if(option.vi)
+    toLanguage = 'vi'
+  else 
+    toLanguage = 'EN'
+
+  return toLanguage;
 }
  
 program
-  .version('0.0.6')
+  .version('0.0.7')
   .arguments('<cmd>')
-  .action((cmd)=>{
-  	cmdValue = cmd;
+  .option("-z, --zh","to Chinese（中文）")
+  .option("-j, --ja", "to Japanese（日语）")
+  .option("-k, --ko", "to Korean（韩语）")
+  .option("-f, --fr", "to French（法语）")
+  .option("-r, --ru", "to Russian（俄语）")
+  .option("-p, --pt", "to Portuguese（葡萄牙语）")
+  .option("-x, --es", "to Spanish（西班牙语）")
+  .option("-v, --vi", "to Vietnamese（越南语）")
+  .action((cmd, options)=>{
+    cmdValue = cmd;
+    to = getCountry(options);
   });
 
 program.parse(process.argv);
@@ -77,5 +107,5 @@ if(cmdValue === undefined) {
 	console.error('input the word you want to trans');
 	process.exit(1);
 } else {
-	trans(cmdValue);
+	trans(cmdValue, to);
 }
