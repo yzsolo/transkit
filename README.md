@@ -7,6 +7,20 @@ npm i -g transkit
 ```
 ## Usage
 ```
+  Options:
+
+    -V, --version  output the version number
+    -z, --zh       to Chinese（中文）
+    -j, --ja       to Japanese（日语）
+    -k, --ko       to Korean（韩语）
+    -f, --fr       to French（法语）
+    -r, --ru       to Russian（俄语）
+    -p, --pt       to Portuguese（葡萄牙语）
+    -x, --es       to Spanish（西班牙语）
+    -v, --vi       to Vietnamese（越南语）
+    -h, --help     output usage information
+```
+```
 transkit <your word>
 ```
 or
