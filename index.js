@@ -63,10 +63,12 @@ let trans = (q, to) => {
 }
 
 let getCountry = (option) => {
-  if(option.zh)
-    toLanguage = 'zh-CHS'
+  if(option.en)
+    toLanguage = 'En'
   else if(option.ja) 
     toLanguage = 'ja'
+  else if(option.zh) 
+    toLanguage = 'zh-CHS'
   else if(option.ko) 
     toLanguage = 'ko'
   else if(option.fr) 
@@ -80,7 +82,7 @@ let getCountry = (option) => {
   else if(option.vi)
     toLanguage = 'vi'
   else 
-    toLanguage = 'EN'
+    toLanguage = 'auto'
 
   return toLanguage;
 }
@@ -89,6 +91,7 @@ program
   .version('0.0.7')
   .arguments('<cmd>')
   .option("-z, --zh","to Chinese（中文）")
+  .option("-e, --en","to English（英文）")  
   .option("-j, --ja", "to Japanese（日语）")
   .option("-k, --ko", "to Korean（韩语）")
   .option("-f, --fr", "to French（法语）")
