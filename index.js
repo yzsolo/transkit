@@ -88,7 +88,7 @@ let getCountry = (option) => {
 }
  
 program
-  .version('0.0.7')
+  .version('0.0.8')
   .arguments('<cmd>')
   .option("-z, --zh","to Chinese（中文）")
   .option("-e, --en","to English（英文）")  
